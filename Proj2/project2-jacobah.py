@@ -96,9 +96,6 @@ I've learned that the abstract is the key elements and findings.
 This project and the code linked to above takes (as usual) a slightly different turn. 
 The neural network being lightweight, and the Phase-estimate being by FFT. 
 
-Please see the git.
-
-
 
 \section*{Introduction :} 
 A quick motivation, and explanation of the Ising lattice/model; 
