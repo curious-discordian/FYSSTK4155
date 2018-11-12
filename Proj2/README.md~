@@ -1,0 +1,14 @@
+## Project description .
+# "Actual" goal of project: 
+study regression and classification continuing from project 1. 
+
+The goal is to determine the coupling constant in an Ising model. 
+This should theoretically be done by backpropogating, somewhat like linear regression. 
+
+# Twist: 
+For the novelty twist we will be pulling back to the previous work and setting up the 
+problem of the neural network differently. 
+
+We will also bring in inspiration from thermodynaic statistical physics, namely the entropy functions, like Gibbs, etc. 
+
+# 

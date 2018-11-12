@@ -1,0 +1,53 @@
+# -*- coding:utf-8 -*-
+## I'll be writing in Python 2 here.
+## So if there's an issue, please check compabilities.
+## (there's a few changes from Python 2 to 3, amongst them the removal
+## of some good functional support, like reduce. :D)
+
+## Implementation from the Mehta notebook. 
+## I'll provide additional comments where I deem necessary.
+## First off, let's make some changes to how the code is structured
+## so that we can easily discern what is in the global scope, and
+## what is not,
+##
+## A note on setattr + module :
+## Using the module we can use setattr(module, variable-name, variable-value)
+##
+## Important note: using the setattr here will result in it becoming a global
+## variable. (That is, we can use it internally in a funciton and set
+## it outside the scope) 
+##
+## For the rest therefore, we can manipulate the internal workings a bit more
+## freely. 
+
+
+import numpy as np
+import scipy.sparse as sp
+np.random.seed(12)
+from sys import modules
+module = modules[__name__] # This one is a bit magical, see above.
+
+import warnings
+#Comment this to turn on warnings
+warnings.filterwarnings('ignore')
+
+### define Ising model aprams
+# system size
+L=40
+
+# create 10000 random Ising states
+states=np.random.choice([-1, 1], size=(10000,L))
+
+def ising_energies(states,L):
+    """
+    This function calculates the energies of the states in the nn Ising Hamiltonian
+    """
+    J=np.zeros((L,L),)
+    for i in range(L):
+        J[i,(i+1)%L]-=1.0
+    # compute energies
+    E = np.einsum('...i,ij,...j->...',states,J,states)
+
+    return E
+# calculate Ising energies
+energies=ising_energies(states,L)

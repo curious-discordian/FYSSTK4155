@@ -1,0 +1,11 @@
+## Have to repickle these bothersome components,
+## In order to use them in python 2.
+## USE PYTHON 3 first.
+import numpy as np
+import pickle
+def repickle(t,root=current_dir+"IsingData/"):
+    data = pickle.load(open(root+'Ising2DFM_reSample_L40_T=%.2f.pkl'%t,'rb'))
+    picke.dump(data, root+'Ising2DFM_rePickled_L40_T=%.2f.pkl'%t, protocol=2)
+    #return np.unpackbits(data).astype(int).reshape(-1,1600)
+
+[repickle(t) for t in range(0,4.25,0.25)] 

@@ -1,0 +1,112 @@
+
+# -*- coding: utf-8 -*-
+import sys  
+#^mainly for LatexTemplate in other folder:
+if sys.platform == 'darwin':
+    sys.path.append('/Users/JacobAlexander/Dropbox/Py_Resources')
+else:
+    sys.path.append('/home/jacobalexander/Dropbox/Py_Resources/') 
+# ^location of resources: LatexTemplate etc. 
+from LatexTemplate import *
+Type = Template(Title = "Project 2 - FYSSTK4155") #<----- Header title
+#^additional vars: author(str), date(str), landscape(boolean) 
+#---create content as raw string below--# 
+#----------using LaTeX-format-----------#  
+content = r'' #creating initial content, 
+#------------content below--------------# 
+content += r''' 
+\section*{Introduction: }
+We'll be introduced to the neural networks, slighly here, but for all intents and purposes 
+we will then be referring back to Project 1. \\ 
+
+Now the project pdf that I submitted for review last deadline will be updated to accomodate and 
+dovetail these two more. i.e. synchronize the information so that we can build on it from where 
+I left off last time. \\
+
+This is not necessarilly going to be a standard way of solving the problems ahead, but hopefully
+it will be demonstrating aspects that are, when taken together, interesting. \\
+
+The ising model here, we will be looking at 10k energy configurations, that is; we'll have 
+a state-space, which can be viewed as an image of the stored energy, U. 
+To this we will add some entropy, because that's life, and finally relate it to the underpinning
+wavelet-theory that is adressed in the previous project pdf. \\
+
+There will, as always, be connections to the models used in quantum physics. These appear 
+mostly as refreshers, but may serve to show some of the underlying physicist-logic. \\
+
+- Hamiltonian. 
+- Lagrangian. 
+- QP (with cheese) 
+- 
+
+
+
+
+'''  
+
+
+#------useful functions & such----------#
+# Allowing for Python Code
+# %s format for standard string inclusion. 
+# May also call on other programs for generating data 
+# that goes into string. 
+
+# See for table generation: 
+# Use Table(Input, Input titles) function for Table 
+#                          or Table.T for transpose
+#Latex: 
+'''
+
+#%\end{Verbatim}
+#%\VerbatimInput{program}
+
+\mathcal{} #%Calligraphic
+\mathbb{}  #Hollow Spaces
+\mathbf{}  #Boldface
+
+\begin{equiation}\tag*{S} #change showing tag *no parenthesis
+\labe
+\begin{Figure}
+ \centering
+ \includegraphics[width=\linewidth]{count_deg_fig.png}
+ \captionof{figure}{målingsdata}
+\end{Figure}
+
+\begin{multicols*}{2} %remember to \end.
+\begin{description} %or item, enumerate
+\epigraph{quote}{author} %for cool quotes
+
+\includepdf{file.pdf} %or png works too. 
+
+% For "skipping" the rest of column, or page 
+\vfill\null
+\columnbreak
+
+\begin{align} 
+%usage: & for line \\ for breaks
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+#--------------Typeset below:-------------------->#
+if __name__ == '__main__':
+    try:
+        Type.content(content)       # may be irrelevant
+        Type.Typeset('project2-jacobah',showpdf=False) # <-filename
+    except: 
+        pass
+
+
+
