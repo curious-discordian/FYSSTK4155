@@ -24,6 +24,8 @@
 import numpy as np
 import scipy.sparse as sp
 import scipy.signal as sig
+
+
 np.random.seed(12)
 from sys import modules
 import sys
@@ -33,6 +35,7 @@ from os import getcwd
 current_dir = getcwd() + '/'
 
 from sklearn.preprocessing import normalize # need this 
+from sklearn import linear_model
 
 import warnings
 #Comment this to turn on warnings
@@ -66,9 +69,11 @@ def ising_energies(states,L):
 # calculate Ising energies
 energies=ising_energies(states,L)
 
+
+
 ### ----- Linear agression. --------------------------------
-## For some simplicity, we'll just recreate the situation of the
-## notebook as a callable function.
+## For time-constraints we'll save this for last.
+## 
 
 
 
